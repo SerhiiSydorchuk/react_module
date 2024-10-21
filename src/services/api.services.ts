@@ -16,7 +16,6 @@ import {IBaseModel} from "../model/IBaseModel";
              const skip = (page - 1) * limit;
           const {data } =
               await axiosInstance.get<IBaseModel & {comments:IComment[]}>('/comments', {params: {skip: skip, limit:limit }});
-                 // const lastID = data.comments[data.comments.length - 1 ].id
                  let flag = data.comments.length < limit ;
                  return { data , flag};
          }
