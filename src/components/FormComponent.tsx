@@ -2,11 +2,9 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {postValidation} from "../validations/postValidation";
 import {joiResolver} from "@hookform/resolvers/joi";
-export interface PostProps {
-	userId: number;
-	title: string;
-	body: string;
-}
+import {getAllPosts, pushPost} from "../services/api.service";
+import {PostProps} from "../models/PostModel";
+
 const FormComponent = () => {
     const {
         register,
@@ -18,22 +16,11 @@ const FormComponent = () => {
     }
         = useForm<PostProps>({mode:'all' , resolver: joiResolver(postValidation)})
 
-    const customHandle = (dataFromForm: PostProps) => {
-        fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            body: JSON.stringify({
-                title: dataFromForm.title,
-                body: dataFromForm.body,
-                userId: dataFromForm.userId,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-
+    const customHandle = async (dataFromForm: PostProps) => {
+        console.log(await pushPost(dataFromForm));
+        console.log(await getAllPosts());
     };
+
     return (
         <form onSubmit={handleSubmit(customHandle)}>
             <div>
