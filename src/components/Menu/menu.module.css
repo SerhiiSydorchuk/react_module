@@ -1,0 +1,13 @@
+.menu {
+
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+.link{
+    text-decoration: none;
+}
+.link:hover {
+   color: dodgerblue;
+
+}
