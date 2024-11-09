@@ -1,17 +1,19 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import styles
+import styles from './menu.module.css';
 
 const Menu = () => {
     return (
-        <ul className={styles.menu}>
-           <li><Link to={''}>Home Page</Link></li>
-           <li><Link to={'users'}>Users Page</Link></li>
-           <li><Link to={'comments'}>Comments Page</Link></li>
-           <li><Link to={'posts'}>Posts Page</Link></li>
-           <li><Link to={'show'}>Show Posts with Comments</Link></li>
+        <div>
+            <ul className={styles.menu}>
+                <li ><Link to={''} className={styles.link}>Home Page</Link></li>
+                <li><Link to={'users'} className={styles.link}>Users Page</Link></li>
+                <li><Link to={'comments'} className={styles.link}>Comments Page</Link></li>
+                <li><Link to={'posts'} className={styles.link}>Posts Page</Link></li>
+                <li><Link to={'show'} className={styles.link}>Show Posts with Comments</Link></li>
+            </ul>
             <hr/>
-        </ul>
+        </div>
     );
 };
 
