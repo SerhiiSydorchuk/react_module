@@ -1,0 +1,10 @@
+.btn {
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #528ac3;
+    border: none;
+}
+.btn:active {
+    background-color:lightskyblue;
+
+}
