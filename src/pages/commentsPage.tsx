@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useStore} from "../store";
 import {loadComments} from "../services/api.service";
+import Comment from "../components/Comments/comment";
 
 const CommentsPage = () => {
     let {commentsSlice:{allComments,commentsLoad}}= useStore()
@@ -13,7 +14,8 @@ const CommentsPage = () => {
     }, []);
     return (
         <div>
-            {allComments.map(comment=><Comment />)}
+
+            {allComments.map(comment => <Comment comment={comment} key={comment.id}/>)}
         </div>
     );
 };

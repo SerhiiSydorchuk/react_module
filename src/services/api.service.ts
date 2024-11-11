@@ -10,11 +10,11 @@ let axiosInstance = axios.create({
 });
 
 export let loadUsers = async ():Promise<IUser[]|undefined> => {
-    let {data:{users}} = await axiosInstance.get<IBaseModel>('/users')
+    let {data:{users}} = await axiosInstance.get<IBaseModel>('users')
     return users;
 }
 export let loadPosts = async (): Promise<IPost[]|undefined>=> {
-   let {data:{posts}} = await axiosInstance.get<IBaseModel>('/posts')
+   let {data:{posts}} = await axiosInstance.get<IBaseModel>('posts')
     return posts;
 }
 export let loadComments =async ():Promise<IComment[]|undefined>=>{
